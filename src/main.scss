@@ -39,6 +39,10 @@ h4 {
 	font-size:100%;
 }
 
+h5 {
+	font-size:100%;
+}
+
 p {
 	font-size:80%;
 }
@@ -50,7 +54,7 @@ body {
 	background-image: url("../img/class.png");
 	overflow:scroll;
 	background-repeat: no-repeat;
-	background-size:100vw 100vh;
+	background-size:100vw;
 	background-position:center;
 	background-attachment:fixed;
 
@@ -94,18 +98,19 @@ header {
 	}	
 
 
-	h1 {
+	h1, img {
 		margin-left:$leftTextMargin;
 		font-weight:bold;
 		padding:6px; //Fix this later
+		width:150px;
 	}
+
 
 	nav {
 		float:right;
-		margin-right:5%;		
-	}
+		margin-right:5%;	
 
-	nav li {
+		li {
 		display:inline-block;
 		margin-left:auto;
 		border-right:1px solid grey;
@@ -114,13 +119,16 @@ header {
 		padding: 0 5px 0 5px;
 		color:$textColor;
 
-	}
+		}	
 
-	nav h4 {
+		h4 {
 		font-weight:400;
 
 	}
 
+		
+
+	}
 
 
 	#hamburger {
@@ -134,9 +142,10 @@ header {
 //HERO
 
 .hero {
-	background-image: url("../img/hero.png");
+	background:white;
 	background-repeat:no-repeat;
-	height:$moduleHeight+50px; //Fix this to be 100vh without vh later.
+	 height:700px;//Fix this to be 100vh without vh later.
+	width:100%;
 	margin:0 auto;
 	margin-top:$headerHeight;
 
@@ -153,7 +162,8 @@ header {
 			text-align:center;
 			margin:0 auto;
 		}
-	}
+}
+	
 
 	.sub-hero-1 {
 		float:left;
@@ -177,6 +187,7 @@ header {
 			margin:0 0 4% 0;
 		}
 	}
+
 
 	.sub-hero-2 {
 		float:right;
@@ -459,16 +470,99 @@ footer {
 }
 
 
+/////TUITION PAGE
 
-
-
-/////COLLEGE (highschool) PAGE
-
-.college {
-	text-align:left;
-	padding:5% 5% 0 5%;
-
-	h2 {
-		margin:4% 0 2% 0;
-	}
+.tuitionMainWrapper {
+	background:white;
 }
+
+.tuitionWrapper {
+	padding-top:5%;
+
+	table, tr, td {
+		border:1px solid black;
+		margin:2% auto;
+		padding:2%;
+		
+	}
+
+	h3 {
+		text-align:center;
+		background:grey;
+	}
+
+}
+
+.topTuition {
+	margin:0 10% 0 10%;
+}
+
+.tuition-20 {
+	float:left;
+	border:1px solid grey;
+	background:white;
+	width:20%;
+	margin-bottom:2%;
+}
+
+
+.tuition-100 {
+	border:1px solid grey;
+	background:white;
+	width:100%;
+	margin-bottom:2%;
+}
+
+////CURRICULUM PAGE
+
+.curriculumTitle {
+	text-align:center;
+	margin-bottom:1%;
+}
+
+
+.curriculum-15 {
+	border:1px solid grey;
+	background:white;
+	width:100%;
+	margin-bottom:2%;
+}
+
+.curriculum-15 h3 {
+	background:grey;
+}
+
+.curriculumWrapper {
+	background:white;
+	margin:$headerHeight+30px 10% 0 2%;
+}
+
+.whiteBG {
+	background:white;
+}
+
+.learnMore-25 {
+	float:left;
+	border:1px solid grey;
+	background:white;
+	width:40%;
+	margin-bottom:2%;
+	margin-left:4%;
+	margin-right:4%;
+	margin-top:3%;
+}
+
+.learnMore-25 h3 {
+	background:grey;
+}
+
+.learnMore-25 p {
+	padding: 4%;
+}
+
+.video {
+	float: left;
+	width:100%;	
+}
+
+
