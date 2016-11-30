@@ -1,0 +1,474 @@
+//Code Notes
+//1. Didn't use flex-box, since want to support IE.
+
+// VARIABLES
+$primaryColor: #FFF;
+$sectionDivide: 15%;
+$img-Margin:25px;
+$sectionTitleMarginBottom: 5%;
+$headerHeight: 50px;
+$leftTextMargin:10%;
+$moduleHeight:575px;
+$textColor:green;
+
+//FONT SETTINGS
+
+html {
+	font-size:100%; //% of browser default ~24px
+}
+
+h1, h2, h3, h4, h5, p {
+	font-family: 'Open Sans', sans-serif;
+	font-weight:300;
+}
+
+h1 {
+	font-size:150%;
+	font-weight:700;
+}
+
+h2 {
+	font-size:90%;
+}
+
+h3 {
+	font-size:100%;
+}
+
+h4 {
+	font-size:100%;
+}
+
+p {
+	font-size:80%;
+}
+
+//GLOBAL SETTINGS
+
+body {
+	background: $primaryColor;
+	background-image: url("../img/class.png");
+	overflow:scroll;
+	background-repeat: no-repeat;
+	background-size:100vw 100vh;
+	background-position:center;
+	background-attachment:fixed;
+
+	img {
+		width: 100%;
+		margin-bottom: $img-Margin;
+	}
+
+	button {
+		display:block;
+		background:orange;
+		margin:0 auto;
+		width:80%;
+		margin-top:2%;
+		margin-bottom:2%;
+		padding:2%;
+	}
+
+
+}
+
+.clear {
+	clear:both;
+}
+
+//HEADER
+
+header {
+	display:inline-block;
+	position: fixed;
+	top: 0;
+	z:100;
+	background: #fff;
+	width: 100%;
+	height: $headerHeight;
+	box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2); /* offset-x | offset-y | blur-radius | spread-radius | color */
+
+	a {
+		text-decoration:none;
+		color:$textColor;
+	}	
+
+
+	h1 {
+		margin-left:$leftTextMargin;
+		font-weight:bold;
+		padding:6px; //Fix this later
+	}
+
+	nav {
+		float:right;
+		margin-right:5%;		
+	}
+
+	nav li {
+		display:inline-block;
+		margin-left:auto;
+		border-right:1px solid grey;
+		border-left:1px solid grey;
+		margin: 0 10px 0 10px;
+		padding: 0 5px 0 5px;
+		color:$textColor;
+
+	}
+
+	nav h4 {
+		font-weight:400;
+
+	}
+
+
+
+	#hamburger {
+		float:left;
+		width:40px;
+		height:40px;
+		margin-left:5%;
+	}
+}
+
+//HERO
+
+.hero {
+	background-image: url("../img/hero.png");
+	background-repeat:no-repeat;
+	height:$moduleHeight+50px; //Fix this to be 100vh without vh later.
+	margin:0 auto;
+	margin-top:$headerHeight;
+
+	.headline {
+		padding: 2% 0 0 0;
+		height: 50px;
+		width:100%;
+		height:auto;
+		text-align:center;
+		padding:3% 0 1% 0;
+
+		h3 {
+			width:40%;
+			text-align:center;
+			margin:0 auto;
+		}
+	}
+
+	.sub-hero-1 {
+		float:left;
+		margin:4% 0 0 10%;
+		padding:2%;
+		display: inline-block;
+		width: 30%;
+		height: 50%;
+		border: 1px solid black;
+		background:rgba(255,255,255,.9);
+		text-align:center;
+
+		img {
+			width:50%;
+			margin:0;
+			padding:.5%;
+		}
+
+		h3 {
+			font-weight:500;
+			margin:0 0 4% 0;
+		}
+	}
+
+	.sub-hero-2 {
+		float:right;
+		margin: 4% 10% 0 0;
+		padding:2%;
+		display: inline-block;
+		width: 30%;
+		height: 50%;
+		border: 1px solid black;
+		text-align:left;
+		background:rgba(255,255,255,.9);
+
+		h5 {
+			font-weight:bold;
+		}
+
+		p {
+			padding:0 0 7% 0;
+		}
+		h3 {
+			font-weight:500;
+			margin:0 0 4% 0;
+			text-align:center;
+		}
+	}
+
+}
+
+//EMPTY DIV
+
+.empty {
+	width:100%;
+	height:300px;
+}
+
+//WHY
+
+.why {
+	margin:0 auto;
+	display:inline-block;
+	background:rgba(255,255,255,1);
+	padding-top:2%;
+	height:$moduleHeight+100px;
+
+	.why-box-featured {
+		display:block;
+		min-width:20%;
+		max-width:60%;
+		margin:4% auto 1% auto;
+		padding:2%;
+		background:rgba(255,255,255,1);
+		border:1px solid black;
+
+		.kpiDescription {
+				width:50%;
+				margin:0 auto;
+			}
+
+		.KPI {
+			width:20%;
+			padding:5%;
+			font-size:200%;
+			margin:4% auto;
+			text-align:center;
+		    background-color:white;
+			border:1px solid black;
+		}
+	}
+
+	.why-box {
+		display:inline-block;
+		width:20%;
+		height:180px;
+		margin:4% 4% 1% 4%;
+		padding:2%;
+		background:rgba(255,255,255,1);
+		border:1px solid black;
+
+
+	.KPI {
+			width:20%;
+			padding:5%;
+			font-size:100%;
+			margin:4% auto;
+			text-align:center;
+		    background-color:white;
+			border:1px solid black;
+		}
+	}
+
+}
+
+
+//STUDENTS
+
+.students {
+	display:inline-block;
+	background:rgba(255,255,255,1);
+	padding:2% 0 2% 0;
+	width:100%;
+	height:$moduleHeight;
+	text-align:center;
+
+	h1 {
+		margin-bottom: $sectionTitleMarginBottom;
+	}
+
+	.studentContainer {
+		width:92px*6;
+		margin:5% auto 0 auto;
+		height:$moduleHeight;
+	}
+
+	.student {
+	float:left;
+	width:90px;
+	height:13%;
+	background-color:grey;
+	border:1px solid white;
+}
+}
+
+
+
+//REQUEST INFO
+
+.requestInfo {
+	margin:0 auto;
+	display:inline-block;
+	background:rgba(255,255,255,1);
+	padding:2% 0 2% 0;
+	width:100%;
+	height:-200px+$moduleHeight;
+	color:black;
+	text-align:center;
+
+	form {
+		width:40%;
+		margin:5% auto;
+		background-color:white;
+
+	}
+
+	label {
+		margin-right:2%;
+		display:block;
+	}
+
+	h2 {
+		margin-bottom: $sectionTitleMarginBottom;
+	}
+}
+
+//STUDENTS
+
+
+
+//REQUEST INPUTS
+
+.inactiveValue  {
+	color:grey;
+}
+
+.activeValue {
+	color:black;
+}
+
+//FOOTER
+
+footer {
+	width:100%;
+	background:rgba(199,194,190,.95);
+	margin-top: $sectionDivide;
+	padding:10px 0;	
+
+	.icon {
+		width:6%;
+		min-width:60px;
+	}
+
+	.paypalIcon {
+		width:30%;
+	}
+
+	 a {
+		display:inline;
+	}
+
+	.footWrap {
+		width:50%;
+		margin:0 auto;
+		text-align:center;
+	}
+
+}
+
+//MEDIA QUERIES
+
+//Small Screens
+@media all and (max-width:400px) {
+
+	#hamburger {
+		display:display;
+	}
+
+	nav {
+		display:none;
+	}
+
+	h1 {
+		text-align:center;
+	}
+
+	.headline {
+		width:100%;
+	}
+
+	.hero {
+
+		height:100%;
+		
+		.headline h3 {
+			margin:10px 0 0 0;
+			width:95%;
+		}
+
+		.sub-hero-2, .sub-hero-1 {
+			height:50%;
+			width:80%;
+			padding:0 auto;
+			margin:0;
+		}
+	}
+
+	
+}
+
+//Medium Screens
+@media all and (max-width:940px) {
+
+	#hamburger {
+		display:display;
+	}
+
+	nav {
+		display:none;
+	}
+
+	h1 {
+		text-align:center;
+	}
+
+	.headline {
+		width:100%;
+	
+		h3 {
+			margin:0 0 0 0;
+		}
+	}
+
+		.hero .headline h3 {
+		margin:10px 0 0 0;
+		width:70%;
+		padding:0 10%;
+	}
+
+
+}
+
+//Big screens
+@media all and (min-width:940px) {
+	#hamburger {
+		display:none;
+	}
+
+	header h1 {
+		float:left;
+	}
+
+}
+
+
+
+
+
+/////COLLEGE (highschool) PAGE
+
+.college {
+	text-align:left;
+	padding:5% 5% 0 5%;
+
+	h2 {
+		margin:4% 0 2% 0;
+	}
+}
