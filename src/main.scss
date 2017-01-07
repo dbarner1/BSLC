@@ -9,7 +9,7 @@ $sectionTitleMarginBottom: 5%;
 $headerHeight: 50px;
 $leftTextMargin:10%;
 $moduleHeight:575px;
-$textColor:green;
+$textColor:rgba(55,139,213,1);
 
 //FONT SETTINGS
 
@@ -66,7 +66,7 @@ body {
 
 	button {
 		display:block;
-		background:orange;
+		background:$textColor;
 		margin:0 auto;
 		width:80%;
 		margin-top:2%;
@@ -74,14 +74,14 @@ body {
 		padding:2%;
 	}
 
-
+	a {
+		color:white;
+	}
 }
 
 .clear {
 	clear:both;
 }
-
-
 
 //HEADER
 
@@ -115,23 +115,22 @@ header {
 		width:150px;
 	}
 
-
 	nav {
 		float:right;
 		margin-right:5%;	
 
 		li {
-		display:inline-block;
-		margin-left:auto;
-		border-right:1px solid grey;
-		border-left:1px solid grey;
-		margin: 0 10px 0 10px;
-		padding: 0 5px 0 5px;
-		color:$textColor;
+			display:inline-block;
+			margin-left:auto;
+			border-right:1px solid grey;
+			border-left:1px solid grey;
+			margin: 0 10px 0 10px;
+			padding: 0 5px 0 5px;
+			color:$textColor;
 		}	
 
 		h4 {
-		font-weight:400;
+			font-weight:400;
 		}
 	}
 
@@ -152,92 +151,116 @@ header {
 	height:100vh;
 	width:100%;
 	margin:0 auto;
-	margin-top:30px;
+	margin-top:10px;
 
-	img {
+	.arrow img {
 		width:5%;
-		margin:2% 47.5% 0 47.5%;
+		margin:1% 55% 0 45%;
 	}
 
 	.headline {
-		padding: 2% 0 0 0;
 		height: 50px;
-		width:100%;
+		width:80%;
 		height:auto;
+		margin:0 auto;
 		text-align:center;
-		padding:3% 0 1% 0;
+		padding:3% 0 0 0;
 
-		h3 {
+		h1 {
 			width:50%;
 			text-align:center;
 			margin:0 auto;
+			margin-top:20px;
+			font-size:3em;
 		}
-}
+
+		h3 {
+			width:50%;
+			margin:0 auto;
+		}
+	}
 	
 
-	.sub-hero-1 {
+	
+
+
+
+	.sub-hero-middle {
 		float:left;
-		margin:2% 0 0 10%;
-		padding:2%;
-		display: inline-block;
-		width: 30%;
+		margin:2% 0 0 2%;
+		width: 45vw;
 		min-height: 42%;
-		border: 1px solid black;
-		background:rgba(255,255,255,.9);
+		border-top: 1px solid #EEEEEE;
+		border-bottom: 1px solid #EEEEEE;
 		text-align:center;
+		background:rgba(255,255,255,1);
+		transition: all .2s ease-in-out; }
+		-webkit-box-shadow: 0 8px 6px -6px black;
+		   -moz-box-shadow: 0 8px 6px -6px black;
+		        box-shadow: 0px 30px 50px -10px grey;
 
 		a {
 			text-decoration:none;
+		}
+
+		.sub-hero-headline {
+			width:30%;
 		}
 
 		img {
-			width:40%;
+			width:100%;
 			margin:0;
-			padding:.5%;
 		}
 
 		h3 {
 			font-weight:500;
-			margin:0 0 4% 0;
+			margin:0 0 2% 0;
+			width:100%;
 		}
 	}
 
+	.sub-hero-middle:hover { 
+		transform: scale(1.2); 
+	}
 
 	.sub-hero-2 {
-		float:right;
-		margin: 2% 10% 0 0;
+		float:left;
+		margin:7% 0 0 2%;
 		padding:2%;
-		display: inline-block;
-		width: 30%;
-		min-height: 42%;
-		border: 1px solid black;
-		text-align:left;
-		background:rgba(255,255,255,.9);
-
-
-		h5 {
-			font-weight:bold;
-		}
+		width: 17vw;
+		min-height: 30%;
+		border: 1px solid #EEEEEE;
+		text-align:center;
+		background:rgba(245,245,245,.9);
+		transition: all .2s ease-in-out; 
+		-webkit-box-shadow: 0 8px 6px -6px black;
+	       -moz-box-shadow: 0 8px 6px -6px black;
+	            box-shadow: 0px 30px 50px -10px grey;
 
 		a {
 			text-decoration:none;
-			color:black;
-			font-weight:400;
-			font-size:80%;
 		}
 
-
-		p {
-			padding:0 0 7% 0;
+		.sub-hero-headline {
+			width:30%;
 		}
+
+		img {
+			width:100%;
+			margin:0;
+		}
+
 		h3 {
 			font-weight:500;
 			margin:0 0 4% 0;
-			text-align:center;
+			width:100%;
 		}
+	
 	}
 
-}
+	.sub-hero-2:hover { 
+		transform: scale(1.2); 
+	}
 
 //EMPTY DIV
 
@@ -259,9 +282,13 @@ header {
 
 	img {
 		width:5%;
-		margin:2% 47.5% 0 39%;
+		margin:-1% 47.5% 0 39%;
 	}
 	
+	#downArrow {
+		width:5%;
+		margin:3% 60% 0 40%;
+	}
 	
 	.why-box-featured {
 		float:left;
@@ -345,42 +372,95 @@ header {
 //STUDENTS
 
 .students {
-	display:inline-block;
+	display:flex;
+	flex-direction:column;
 	background:rgba(255,255,255,1);
 	padding:6% 0;
 	width:100%;
-	max-height:$moduleHeight;
+	height:100vh;
 	text-align:center;
 
+		h3 {
+			font-weight:500;
+			margin:0 0 4% 0;
+			width:100%;
+		}	
 
+		#downArrow2  {
+			width:5%;
+			margin:3% 56% 0 44%;
+		}
 
-	h1 {
-		margin-bottom: $sectionTitleMarginBottom;
-	}
-
-		img {
-		width:5%;
-		margin:2% 47.5% 0 47.5%;
-	}
+		.allButArrow {
+			display:flex;
+			flex-direction:row;
+		}
 
 	.studentContainer {
-		width:92px*6;
-		margin:0 auto;
-		max-height:$moduleHeight;
+		margin-left:2%;
+		width: 40vw;
 
-	.student img {
-		width:80%;
-		margin:0;
-	}
+		.students2 {
+			display:flex;
+			flex-direction:row;
+			flex-wrap:wrap;
+			justify-content:center;
+			align-content:center;
+		}
+
+		.student img {
+			width:80%;
+			margin:0;
+		}
+
 	}
 
 	.student {
-	float:left;
-	width:90px;
-	height:13%;
-	background-color:grey;
-	border:1px solid white;
-}
+		width:90px;
+		height:13%;
+		background-color:grey;
+		border:1px solid white;
+	}
+
+	.featuredStudentContainer {
+
+		display:flex;
+		flex-direction:column;
+		padding:2%;
+		width: 30vw;
+		margin-right:2%;
+		margin-left:8%;
+		border: 1px solid #EEEEEE;
+		text-align:center;
+		background:rgba(255,255,255,.9);
+		-webkit-box-shadow: 0 8px 6px -6px black;
+	       -moz-box-shadow: 0 8px 6px -6px black;
+	            box-shadow: 0px 30px 50px -10px grey;
+
+		a {
+			text-decoration:none;
+		}
+
+		.sub-hero-headline {
+			width:30%;
+		}
+
+		img {
+			width:50%;
+			margin:0 auto;
+		}
+
+
+	}
+
+		h1 {
+		margin-bottom: $sectionTitleMarginBottom;
+	}
+
+	img {
+		width:15%;
+		margin:2% 42.5% 0 42.5%;
+	}
 }
 
 
@@ -682,3 +762,6 @@ footer {
 	width:100%;
 	margin-bottom:2%;
 }
+
+
+

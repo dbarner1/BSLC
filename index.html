@@ -1,5 +1,3 @@
-<!--!!!!! Small screens not supported yet!-->
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,12 +5,9 @@
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="dist/normalize.css">
 	<link rel="stylesheet" type="text/css" href="dist/main.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> 
-	<!--jQuery used only for scrolling behavior - frameworks = bad for showing knowledge!-->
-
+	<!--jQuery used only for scrolling behavior and carouseling - frameworks = bad for showing knowledge!-->
 </head>
 <body>
-	<div class="main-wrapper">
 
 		<header>
 			<img id="hamburger" src="img/hamburger.png" alt="hamburger"/>
@@ -27,6 +22,9 @@
 				</ul>
 			</nav>
 		</header>
+	<div class="main-wrapper">
+
+
 
 		<div class="clear"></div>
 
@@ -37,21 +35,24 @@
 				<h3>Learn how our students at Bay State Learning Center are speeding up their self awareness and learning by starting class with passion.</h3>
 			</div>
 
-			<div class="sub-hero-1">
-				<h3>Meet James</h3>
-				<img src="img/example_student.jpg" alt="student photo"/>
-				<p>James is a 3rd year student at Bay State Learning Center.  Next Fall he'll embark on a new mission to help spread awareness about income inequality in the world.  <a href="#">Read more.</a></p>
+			<div class="sub-hero-2">
+				<h3>Our Curriculum</h3>
+				<p>To understand if your child would be a good fit for our program, we welcome you to view the curriculum, take a test to see if they're a good fit, or contact other parents of students in our current cohort.</p>
+				<button><h5><a href="fitTest.html">Take Our "Fit" Test</a></h5></button>
+			</div>
+
+			<div class="sub-hero-middle">
+				<img src="img/class.png" alt="class photo"/>
+				<p>Everyday here is crafted personally for each student.<br/><a href="#">Read more.</a></p>
 			</div>
 
 			<div class="sub-hero-2">
-				<h3>Learn More</h3>
-				<p>To understand if your child would be a good fit for our program, we welcome you to view the curriculum, take a test to see if they're a good fit, or contact other parents of students in our current cohort</p>
-				<button><h5><a href="curriculum.html">View Curriculum</a></h5></button>
-				<button><h5><a href="fitTest.html">Take Our "Fit" Test</a></h5></button>
-				<button><h5><a href="currentParents.html">Contact Current Parents</a></h5></button>
+				<h3>Partner With Us!</h3>
+				<p>To become part of the future of education in Massachusetts we're currently open to partner with you.  We have many benefits to give you, including advertising, student projects, and more!</p>
+				<button><h5><a href="curriculum.html">Learn More</a></h5></button>
 			</div>
 		
-		<a href="#why"><img src="img/down-arrow-2.svg"/></a>
+			<a href="#why" class="arrow"><img src="img/down-arrow-2.svg"/></a>
 
 		</div><!--/hero-->
 
@@ -100,74 +101,76 @@
 					<p>Our students report a satisfaction rate of 94%, via an independent survey. There are several reasons why.  Read more <a href="#">here</a>. </p>
 				</div>
 			</div>
-					<a href="#students"><img src="img/down-arrow-2.svg"/></a>
+					<a href="#students"><img id="downArrow" src="img/down-arrow-2.svg"/></a>
 		</div><!--/why-->
 
 		<div class="empty"></div>
 
 		<div class="students" id="students">
 
-			<div class="studentContainer">
-				<h1>Our Current Class</h1> 
-				<!--Turn this into JS!-->
-				<div class="student">
-					<img src="img/svg_edu2/svg/reading.svg"/>
-				</div>	
-				<div class="student">
-					<img src="img/svg_edu2/svg/reading.svg"/>
-				</div>	
-				<div class="student">
-					<img src="img/svg_edu2/svg/reading.svg"/>
-				</div>	
-				<div class="student">
-					<img src="img/svg_edu2/svg/reading.svg"/>
-				</div>	
-				<div class="student">
-					<img src="img/svg_edu2/svg/reading.svg"/>
-				</div>	
-				<div class="student">
-					<img src="img/svg_edu2/svg/reading.svg"/>
-				</div>	
-				<div class="student">
-					<img src="img/svg_edu2/svg/reading.svg"/>
-				</div>	
-				<div class="student">
-					<img src="img/svg_edu2/svg/reading.svg"/>
-				</div>	
-				<div class="student">
-					<img src="img/svg_edu2/svg/reading.svg"/>
-				</div>	
-				<div class="student">
-					<img src="img/svg_edu2/svg/reading.svg"/>
-				</div>	
-				<div class="student">
-					<img src="img/svg_edu2/svg/reading.svg"/>
-				</div>	
-				<div class="student">
-					<img src="img/svg_edu2/svg/reading.svg"/>
-				</div>	
-				<div class="student">
-					<img src="img/svg_edu2/svg/reading.svg"/>
-				</div>	
-				<div class="student">
-					<img src="img/svg_edu2/svg/reading.svg"/>
-				</div>	
-				<div class="student">
-					<img src="img/svg_edu2/svg/reading.svg"/>
-				</div>	
-				<div class="student">
-					<img src="img/svg_edu2/svg/reading.svg"/>
-				</div>	
-				<div class="student">
-					<img src="img/svg_edu2/svg/reading.svg"/>
-				</div>	
-				<div class="student">
-					<img src="img/svg_edu2/svg/reading.svg"/>
-				</div>	
+			<div class="allButArrow">
+				<div class="featuredStudentContainer">
+					<h3>Meet Our Featured Student: James!</h3>
+					<img src="img/example_student.jpg" alt="student photo"/>
+					<h4>James is a 3rd year student at Bay State Learning Center.  Next Fall he'll embark on a new mission to help spread awareness about income inequality in the world.  <a href="#">Read more.</a></h4>
+				</div>
+
+				<div class="studentContainer featuredStudentContainer">
+					<h3>Our Current Class</h3> 
+					<!--Turn this into JS!-->
+					<div class="students2">
+						<div class="student">
+							<img src="img/svg_edu2/svg/reading.svg"/>
+						</div>	
+						<div class="student">
+							<img src="img/svg_edu2/svg/reading.svg"/>
+						</div>	
+						<div class="student">
+							<img src="img/svg_edu2/svg/reading.svg"/>
+						</div>	
+						<div class="student">
+							<img src="img/svg_edu2/svg/reading.svg"/>
+						</div>	
+						<div class="student">
+							<img src="img/svg_edu2/svg/reading.svg"/>
+						</div>	
+						<div class="student">
+							<img src="img/svg_edu2/svg/reading.svg"/>
+						</div>	
+						<div class="student">
+							<img src="img/svg_edu2/svg/reading.svg"/>
+						</div>	
+						<div class="student">
+							<img src="img/svg_edu2/svg/reading.svg"/>
+						</div>	
+						<div class="student">
+							<img src="img/svg_edu2/svg/reading.svg"/>
+						</div>	
+						<div class="student">
+							<img src="img/svg_edu2/svg/reading.svg"/>
+						</div>	
+						<div class="student">
+							<img src="img/svg_edu2/svg/reading.svg"/>
+						</div>	
+						<div class="student">
+							<img src="img/svg_edu2/svg/reading.svg"/>
+						</div>	
+						<div class="student">
+							<img src="img/svg_edu2/svg/reading.svg"/>
+						</div>	
+						<div class="student">
+							<img src="img/svg_edu2/svg/reading.svg"/>
+						</div>	
+						<div class="student">
+							<img src="img/svg_edu2/svg/reading.svg"/>
+						</div>	
+
+				</div>
 				<h4>Click their to learn more about their entrepeneurial paths!</h4>
-			</div><!--studentContainer-->
-			<a href="#request"><img src="img/down-arrow-2.svg"/></a>
-		</div><!--/feature-->
+			</div>
+		</div><!--all but arrow-->
+		<a href="#request"><img id="downArrow2" src="img/down-arrow-2.svg"/></a>
+	</div>
 
 
 		<div class="empty"></div>
@@ -208,6 +211,7 @@
 		</div><!--footwrap-->
 	</footer>
 	</div><!--/main-wrapper-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> 
 	<script type="text/javascript" src="dist/main.js"></script>
 </body>
 </html>
