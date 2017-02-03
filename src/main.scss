@@ -1,5 +1,5 @@
 //Code Notes
-//1. Didn't use flex-box, since want to support IE.
+//1. IE not supported.
 
 // VARIABLES
 $primaryColor: #FFF;
@@ -10,47 +10,35 @@ $headerHeight: 50px;
 $leftTextMargin:10%;
 $moduleHeight:575px;
 $textColor:rgba(55,139,213,1);
+$headlineColor:rgba(255,250,250,1);
 
 //FONT SETTINGS
 
-
-html {
-	font-size:100%; //% of browser default ~24px
-}
+html {font-size:100%;} //% of browser default ~24px
 
 h1, h2, h3, h4, h5, p {
-	font-family: 'Open Sans', sans-serif;
-	font-weight:300;
+			font-family: 'Raleway', sans-serif;
 }
 
-h1 {
-	font-size:150%;
-	font-weight:700;
-}
-
-h2 {
-	font-size:90%;
-}
-
-h3 {
-	font-size:100%;
-}
-
-h4 {
-	font-size:100%;
-}
-
-h5 {
-	font-size:100%;
-}
-
-p {
-	font-size:80%;
-}
+h1 			{font-size:3em; font-weight:700;}
+h2 			{font-size:90%;}
+h3, h4, h5  {font-size:100%; font-weight:300}
+p 			{font-size:80%;}
 
 //GLOBAL SETTINGS
 
+
+
 body {
+
+	.edgeButton:hover {
+		color:orange;	
+	}
+
+	.orangeButtonA:hover {
+		color:blue;
+	}
+
 	background: $primaryColor;
 	background-image: url("../img/class.png");
 	overflow:scroll;
@@ -59,20 +47,24 @@ body {
 	background-position:center;
 	background-attachment:fixed;
 
-	img {
-		width: 100%;
-		margin-bottom: $img-Margin;
-	}
-
 	button {
 		display:block;
 		background:$textColor;
+		border:0;
 		margin:0 auto;
-		width:80%;
+		width:60%;
 		margin-top:2%;
 		margin-bottom:2%;
 		padding:2%;
+		
+		h5 {
+			font-weight:100;
+		}
 	}
+
+
+
+
 
 	a {
 		color:white;
@@ -83,186 +75,252 @@ body {
 	clear:both;
 }
 
-//HEADER
+/***************************************
+****************************************
+HEADER**********************************
+****************************************
+***************************************/
 
 header {
-	display:inline-block;
 	position: fixed;
-	top: 0;
-	z:100;
-	background: #fff;
+	z-index: 1000;
+	background: rgba(255,255,255,1);
 	width: 100%;
 	height: $headerHeight;
-	box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2); /* offset-x | offset-y | blur-radius | spread-radius | color */
-
-	a {
-		text-decoration:none;
-		color:$textColor;
-	}	
-
-	#hamburger {
-		display:none;
-	}
-
-	header h1 {
-		float:left;
-	}
-
-	h1, img {
+	box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2); 
+	
+	#logo {
 		margin-left:$leftTextMargin;
-		font-weight:bold;
 		padding:6px; //Fix this later
 		width:150px;
 	}
 
+	.aSelected {
+		color:orange;
+	}
+
 	nav {
 		float:right;
-		margin-right:5%;	
+		margin-right:5%;
 
+		
 		li {
 			display:inline-block;
-			margin-left:auto;
-			border-right:1px solid grey;
-			border-left:1px solid grey;
-			margin: 0 10px 0 10px;
-			padding: 0 5px 0 5px;
+			padding: 0 5px;
 			color:$textColor;
 		}	
 
-		h4 {
-			font-weight:400;
+		h3 {
+			
+		}
+
+		a {
+			text-decoration:none;
+			color:$textColor;
+		}	
+
+		a:hover {
+			color:orange;
 		}
 	}
+} /*Header*/
 
+/***************************************
+****************************************
+ARROWS**********************************
+****************************************
+***************************************/
 
-	#hamburger {
-		float:left;
-		width:40px;
-		height:40px;
-		margin-left:5%;
+	.heroArrow img {
+		width:10%;
+		margin:5vh 40% 0 40%;
 	}
-}
 
-//HERO
+	.arrowMobile img {
+		display:none;
+		width:10%;
+		margin:5vh 40% 0 40%;
+	}
+
+	.arrow2 {
+		width:40%;
+		margin:2vh 0 0 48vw;
+	}
+
+	.arrow4 {
+		width:30%;
+		margin-left:25%;
+
+	}
+
+	.arrow5 {
+		width:40%;
+		margin:20px 0 20px 30vw;
+	}
+
+	.arrow6 {
+		width:40%;
+		padding:0 10vw;
+		margin:50px 0 20px 0;
+	}
+
+	.arrow3 {
+		width:5%;
+		margin:10px auto 0 auto;
+	}
+
+
+
+
+/***************************************
+****************************************
+HERO************************************
+****************************************
+***************************************/
 
 .hero {
-	background:white;
-	background-repeat:no-repeat;
-	height:100vh;
-	width:100%;
-	margin:0 auto;
-	margin-top:10px;
+	background:url('http://static.tumblr.com/03fbbc566b081016810402488936fbae/pqpk3dn/MRSmlzpj3/tumblr_static_bg3.png') repeat 0 0; //Hero background by https://codepen.io/asfarmed/pen/cfslr
+	min-height:97vh;
+	width:100vw;
+	display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  	display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  	display: -ms-flexbox;      /* TWEENER - IE 10 */
+  	display: -webkit-flex;     /* NEW - Chrome */
+  	display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+	flex-direction:row;
+	flex-wrap:wrap;
+	justify-content:center;
+	
+	.bannerAnnouncement {
+		display:flex;
+		flex-direction:row;
+		flex-wrap:wrap;
+		background:orange;
+		width:100vw;
+		color:white;	
+		margin-top: $headerHeight;
+		height:50px;
+		text-align:center;
 
-	.arrow img {
-		width:5%;
-		margin:1% 55% 0 45%;
+		h2 {
+			margin-top:10px;
+			margin-left:30px;
+			margin-right:100px;
+			font-size:140%;
+			min-width:65vw;
+			text-align:left;
+		}
+
+		button {
+			min-width:10vw;
+			max-width:100px;
+			margin-top:5px;
+			margin-bottom:5px;
+			padding:5px;
+			height:40px;
+		}
+
+		button:hover {
+			color:orange;	
+		}
+
+		a {
+			text-decoration:none;
+		}
+
+		h3 {
+			margin-left:3vw;
+			margin-top:5px;
+			font-size:80%;
+		}
 	}
 
 	.headline {
 		height: 50px;
 		width:80%;
-		height:auto;
-		margin:0 auto;
 		text-align:center;
-		padding:3% 0 0 0;
+		color:$headlineColor;
 
 		h1 {
-			width:50%;
-			text-align:center;
+			width:90%;
 			margin:0 auto;
-			margin-top:20px;
-			font-size:3em;
+			margin-top:-20px;
+			font-size:3em;	
 		}
 
 		h3 {
-			width:50%;
+			width:80%;
 			margin:0 auto;
+			text-transform:uppercase;
 		}
 	}
-	
 
-	
-
-
-
-	.sub-hero-middle {
-		float:left;
-		margin:2% 0 0 2%;
-		width: 45vw;
-		min-height: 42%;
-		border-top: 1px solid #EEEEEE;
-		border-bottom: 1px solid #EEEEEE;
+	.middleSubHero {
+		width: 40vw;
 		text-align:center;
-		background:rgba(255,255,255,1);
-		transition: all .2s ease-in-out; }
-		-webkit-box-shadow: 0 8px 6px -6px black;
-		   -moz-box-shadow: 0 8px 6px -6px black;
-		        box-shadow: 0px 30px 50px -10px grey;
-
-		a {
-			text-decoration:none;
-		}
-
-		.sub-hero-headline {
-			width:30%;
-		}
-
-		img {
-			width:100%;
-			margin:0;
-		}
-
-		h3 {
-			font-weight:500;
-			margin:0 0 2% 0;
-			width:100%;
-		}
-	}
-
-	.sub-hero-middle:hover { 
-		transform: scale(1.2); 
-	}
-
-	.sub-hero-2 {
-		float:left;
-		margin:7% 0 0 2%;
-		padding:2%;
-		width: 17vw;
-		min-height: 30%;
-		border: 1px solid #EEEEEE;
-		text-align:center;
-		background:rgba(245,245,245,.9);
 		transition: all .2s ease-in-out; 
-		-webkit-box-shadow: 0 8px 6px -6px black;
-	       -moz-box-shadow: 0 8px 6px -6px black;
-	            box-shadow: 0px 30px 50px -10px grey;
 
+
+		.orangeButton  {
+			background-color:orange;
+			margin-top:2%;	
+
+			a {
+				text-decoration:none;
+			}	
+
+		}
+
+		#classPic {
+			width:100%;
+		}
+
+		p {
+			width:80%;
+			margin:0 auto;
+			color:white;
+		}
+	}
+
+	.middleSubHero:hover { 
+		transform: scale(1.1); 
+	}
+
+	.edgeSubHero {
+		padding:0 2%;
+		width: 25vw;
+		min-height: 30%;
+		text-align:center;
 		a {
 			text-decoration:none;
 		}
 
-		.sub-hero-headline {
-			width:30%;
-		}
+		.edgeSubHeroContent {
+			background:rgba(245,245,245,.7);
+			border: 1px solid(245,245,245,1);
+			padding:3%;
+			transition: all .2s ease-in-out; 
 
-		img {
-			width:100%;
-			margin:0;
+			h3 {
+				margin-bottom:4%;
+			}
 		}
-
-		h3 {
-			font-weight:500;
-			margin:0 0 4% 0;
-			width:100%;
-		}
-	
 	}
 
-	.sub-hero-2:hover { 
-		transform: scale(1.2); 
+	.edgeSubHeroContent:hover { 
+		transform: scale(1.3); 
 	}
+}/*End of Hero*/
 
-//EMPTY DIV
+.noBannerAnnouncement {
+	margin-top:90px;
+}
+
+/***************************************
+****************************************
+EMPTY***********************************
+****************************************
+***************************************/
 
 .empty {
 	width:100%;
@@ -270,43 +328,170 @@ header {
 	clear:both;
 }
 
+/***************************************
+****************************************
+PRAISE**********************************
+****************************************
+***************************************/
+.praise {
+	display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+ 	display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  	display: -ms-flexbox;      /* TWEENER - IE 10 */
+  	display: -webkit-flex;     /* NEW - Chrome */
+  	display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+	flex-direction:column;
+	flex-wrap:wrap;
+	justify-content:space-around;
+	margin:0 auto;
+	min-height:92vh;
+	padding-top:10vh;
+	background:url('http://static.tumblr.com/03fbbc566b081016810402488936fbae/pqpk3dn/MRSmlzpj3/tumblr_static_bg3.png') repeat 0 0;
+	text-align:center;
 
-//WHY
+	h3 {
+		color:white;
+		font-size:160%;
+	}
+
+	.stories {
+		display:flex;
+		flex-direction:row;
+		flex-wrap:wrap;
+		justify-content:space-around;
+		padding:2vw;
+		
+		.story {
+			padding:2vw;
+			width:200px;
+			margin-top:2vh;
+			margin-bottom:2vh;
+			margin-left:20px;
+			text-align:left;
+
+			.author {
+				text-align:right;
+				color:blue;
+			}	
+		}
+
+		.notFeatured {
+			background-color:white;
+		}
+
+		.featured {
+			padding-left:20%;
+			width:100%;
+			height:20vw;
+			order:-1;
+			background-color:none;
+			margin-bottom:15vw;
+		}
+	
+	}
+}
+
+.studentPraise {
+	display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+ 	display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  	display: -ms-flexbox;      /* TWEENER - IE 10 */
+  	display: -webkit-flex;     /* NEW - Chrome */
+  	display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+	flex-direction:column;
+	flex-wrap:wrap;
+	justify-content:space-around;
+	margin:0 auto;
+	min-height:92vh;
+	padding-top:10vh;
+	background:url('../img/greenBG.png') repeat 0 0;
+	text-align:center;
+
+	h3 {
+		color:white;
+		font-size:160%;
+	}
+	
+	.studentStories {
+		display:flex;
+		flex-direction:row;
+		flex-wrap:wrap;
+		justify-content:space-around;
+		padding:2vw;
+		
+		.studentStory {
+			padding:2vw;
+			width:220px;
+			margin-top:10px;
+			text-align: left;
+
+			.author {
+				text-align:right;
+				color:blue;
+			}	
+		}
+
+		.studentNotFeatured {
+			background-color:white;
+		}
+
+		.studentFeatured {
+			padding:0;
+			width:100%;
+			height:20vw;
+			order:-1;
+			background-color:none;
+			margin-bottom:5vh;
+		}
+	}
+}
+
+/***************************************
+****************************************
+WHY*************************************
+****************************************
+***************************************/
 
 .why {
+	display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+ 	display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  	display: -ms-flexbox;      /* TWEENER - IE 10 */
+  	display: -webkit-flex;     /* NEW - Chrome */
+  	display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+	flex-direction:row;
+	flex-wrap:wrap;
+	justify-content:space-around;
 	margin:0 auto;
-	display:block;
-	background:rgba(255,255,255,1);
-	padding: 6% 0 6% 10%;
+	min-height:92vh;
+	padding-top:10vh;
+	background:url('../img/greenBG.png') repeat 0 0;
 
-
-	img {
-		width:5%;
-		margin:-1% 47.5% 0 39%;
+	.sub-whys {
+		display:flex;
+		flex-direction:column;
+		flex-wrap:wrap;
+		width:45%;
+		margin:10vh 0 0 2vw;
 	}
-	
-	#downArrow {
-		width:5%;
-		margin:3% 60% 0 40%;
-	}
-	
-	.why-box-featured {
-		float:left;
-		width:40%;
-		max-width:80%;
-		height:67vh;
-		margin-top:2%;
-		padding-top:2%;
-		background-size:100%;
-		border:1px solid black;
 
+	.whyBoxFeatured {
+		display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  		display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  		display: -ms-flexbox;      /* TWEENER - IE 10 */
+  		display: -webkit-flex;     /* NEW - Chrome */
+  		display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+		flex-direction:column;
+		flex-wrap:wrap;
+		width:25%;
+		padding:0 1vw;
+		margin:10vh 6vw 15vh 0;
+		background-color:rgba(255,255,245,1);
+	
 		img {
-			width:40%;
-			margin:auto 30%;
+			width:30%;
+			align-self:center;
 		}
 
 		.kpiDescription {
-				margin-top:10%;
+				margin-top:2%;
 				width:100%;
 				text-align:center;
 				color:black;
@@ -319,25 +504,22 @@ header {
 			padding:5%;
 			margin:3% auto;
 			text-align:center;
-		    background-color:white;
 			border:1px solid black;
 
+
 			h3 {
-				font-size:2.1em;
+				font-size:1.7em;
 				font-weight:700;
 			}
-
 		}
 	}
 
 	.why-box {
-		float:left;
-		width:50%;
-		height:18%;
-		margin:2%;
-		background:rgba(255,255,255,1);
-		border:1px solid black;
-
+		z-index:2;
+		min-height:16vh;
+		margin:1%;
+		background-color:#FFF;
+	
 		.KPI {
 			float:left;
 			width:10%;
@@ -345,61 +527,120 @@ header {
 			padding:2% 2%;
 			font-size:100%;
 			text-align:center;
-			
-		img {
-			display:block;
-			width:100%;
-			margin:0 auto;
-		}
+	
+			img {
+				display:block;
+				width:100%;
+				margin:0 auto;
+			}
 
 			h3 {
-				font-size:1.4em;
+				font-size:1.2em;
 				font-weight:700;
 			}
 		}
 
 		.kpiDescription p {
-				font-size:100%;
-				margin-top:4%;
-				margin:4% 15%;
-				padding-left:1%;
-				border-left:1px solid black;
+			font-size:.9em;
+			margin-top:4%;
+			margin:4% 15%;
+			padding-left:1%;
+			border-left:1px solid black;
 		}
+	}
+
+	.whyBox1 {
+		margin-top:0;
 	}
 }
 
+/***************************************
+****************************************
+STUDENTS********************************
+****************************************
+***************************************/
 
-//STUDENTS
 
 .students {
-	display:flex;
+	display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  	display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  	display: -ms-flexbox;      /* TWEENER - IE 10 */
+  	display: -webkit-flex;     /* NEW - Chrome */
+  	display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
 	flex-direction:column;
 	background:rgba(255,255,255,1);
-	padding:6% 0;
+	padding-top:16vh;
 	width:100%;
-	height:100vh;
+	min-height:80vh;
 	text-align:center;
+	background:url('http://static.tumblr.com/03fbbc566b081016810402488936fbae/pqpk3dn/MRSmlzpj3/tumblr_static_bg3.png') repeat 0 0;
 
-		h3 {
-			font-weight:500;
-			margin:0 0 4% 0;
-			width:100%;
-		}	
+	h1 {
+		margin-bottom: $sectionTitleMarginBottom;
+	}
 
-		#downArrow2  {
-			width:5%;
-			margin:3% 56% 0 44%;
+	h3 {
+		font-weight:500;
+		margin:0 0 4% 0;
+		width:100%;
+	}	
+
+	h4 {
+		font-weight:100;
+		margin:4vh 0 0 0;
+	}
+	
+	img {
+		width:15%;
+		margin:2% 42.5% 0 42.5%;
+	}
+
+	.allButArrow {
+		display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  		display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  		display: -ms-flexbox;      /* TWEENER - IE 10 */
+  		display: -webkit-flex;     /* NEW - Chrome */
+  		display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+		flex-direction:row;
+		flex-wrap:wrap;
+		justify-content:space-between;
+	}
+
+	.featuredStudentContainer {
+		display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  		display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  		display: -ms-flexbox;      /* TWEENER - IE 10 */
+  		display: -webkit-flex;     /* NEW - Chrome */
+  		display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+		flex-direction:column;
+		padding:2%;
+		width: 30vw;
+		margin-left:10%;
+		border: 1px solid #EEEEEE;
+		text-align:center;	
+		background:rgba(255,255,255,.9);
+
+		a {
+			color:black;
 		}
 
-		.allButArrow {
-			display:flex;
-			flex-direction:row;
+		.sub-hero-headline {
+			width:30%;
 		}
+
+		img {
+			width:30%;
+			margin:0 auto;
+		}
+	}
 
 	.studentContainer {
-		margin-left:2%;
-		width: 40vw;
+		min-width: 20vw;
+		margin-right:10%;
 
+		h4 {
+			margin-top:2vh;
+		}
 		.students2 {
 			display:flex;
 			flex-direction:row;
@@ -412,7 +653,6 @@ header {
 			width:80%;
 			margin:0;
 		}
-
 	}
 
 	.student {
@@ -422,105 +662,205 @@ header {
 		border:1px solid white;
 	}
 
-	.featuredStudentContainer {
-
-		display:flex;
-		flex-direction:column;
-		padding:2%;
-		width: 30vw;
-		margin-right:2%;
-		margin-left:8%;
-		border: 1px solid #EEEEEE;
-		text-align:center;
-		background:rgba(255,255,255,.9);
-		-webkit-box-shadow: 0 8px 6px -6px black;
-	       -moz-box-shadow: 0 8px 6px -6px black;
-	            box-shadow: 0px 30px 50px -10px grey;
-
-		a {
-			text-decoration:none;
-		}
-
-		.sub-hero-headline {
-			width:30%;
-		}
-
-		img {
-			width:50%;
-			margin:0 auto;
-		}
-
-
-	}
-
-		h1 {
-		margin-bottom: $sectionTitleMarginBottom;
-	}
-
-	img {
-		width:15%;
-		margin:2% 42.5% 0 42.5%;
-	}
+	
 }
 
 
+/***************************************
+****************************************
+REQUEST INFO****************************
+****************************************
+***************************************/
 
-//REQUEST INFO
 
 .requestInfo {
 	margin:0 auto;
 	display:inline-block;
 	background:rgba(255,255,255,1);
-	padding:5% 0 1% 0;
+	padding:10vh 0 30vh 0;
 	width:100%;
 	height:-200px+$moduleHeight;
-	color:black;
+	color:white;
 	text-align:center;
-
-
+	background:url('../img/greenBG.png') repeat 0 0;
+	-webkit-animation: 10s linear 0s normal none infinite animate;
+	-moz-animation: 10s linear 0s normal none infinite animate;
+	-ms-animation: 10s linear 0s normal none infinite animate;
+	-o-animation: 10s linear 0s normal none infinite animate;
+	animation: 10s linear 0s normal none infinite animate;
+ 
+	@-webkit-keyframes animate {
+		from {background-position:0 0;}
+		to {background-position: 0 500;}
+	}
+	 
+	@-moz-keyframes animate {
+		from {background-position:0 0;}
+		to {background-position: 0 500;}
+	}
+	 
+	@-ms-keyframes animate {
+		from {background-position:0 0;}
+		to {background-position: 0 500;}
+	}
+	 
+	@-o-keyframes animate {
+		from {background-position:0 0;}
+		to {background-position: 0 500;}
+	}
+	 
+	@keyframes animate {
+		from {background-position:0 0;}
+		to {background-position: 0 500px;}
+	}	
 
 	form {
-		width:40%;
-		margin:5% auto;
-		background-color:white;
+		max-width:30%;
+		margin:8vh auto 10vh auto;
+		background-color:rgba(5,5,5,.3);
+		padding:2%;
+		color:black;
+		font-weight:100;
+
+		label {
+			margin-top:2vh;
+			
+		}
+
+
+		input {
+			display:block;
+			margin:1vh auto 0 auto; 
+			border:0px;
+			width:250px;
+			color:black;
+		}
+
+		button {
+			width:250px;
+			background-color:green;
+			color:white;
+		}
 
 	}
 
 	label {
-		margin-right:2%;
 		display:block;
 	}
 
 	h2 {
 		margin-bottom: $sectionTitleMarginBottom;
 	}
+
 }
 
 
+.volunteerInfo {
+	margin:0 auto;
+	display:inline-block;
+	background:rgba(255,255,255,1);
+	padding:10vh 0 10vh 0;
+	width:100%;
+	height:-200px+$moduleHeight;
+	color:white;
+	text-align:center;
+	background:url('http://static.tumblr.com/03fbbc566b081016810402488936fbae/pqpk3dn/MRSmlzpj3/tumblr_static_bg3.png') repeat 0 0;
+	-webkit-animation: 10s linear 0s normal none infinite animate;
+	-moz-animation: 10s linear 0s normal none infinite animate;
+	-ms-animation: 10s linear 0s normal none infinite animate;
+	-o-animation: 10s linear 0s normal none infinite animate;
+	animation: 10s linear 0s normal none infinite animate;
+ 
+	@-webkit-keyframes animate {
+		from {background-position:0 0;}
+		to {background-position: 0 500;}
+	}
+	 
+	@-moz-keyframes animate {
+		from {background-position:0 0;}
+		to {background-position: 0 500;}
+	}
+	 
+	@-ms-keyframes animate {
+		from {background-position:0 0;}
+		to {background-position: 0 500;}
+	}
+	 
+	@-o-keyframes animate {
+		from {background-position:0 0;}
+		to {background-position: 0 500;}
+	}
+	 
+	@keyframes animate {
+		from {background-position:0 0;}
+		to {background-position: 0 500px;}
+	}	
 
-//REQUEST INPUTS
+	form {
+		max-width:30%;
+		margin:8vh auto 0 auto;
+		background-color:rgba(5,5,5,.3);
+		padding:2%;
+		color:black;
+		font-weight:100;
 
-.inactiveValue  {
-	color:grey;
+		label {
+			margin-top:2vh;
+			
+		}
+
+
+		input {
+			display:block;
+			margin:1vh auto 0 auto; 
+			border:0px;
+			width:250px;
+		}
+
+		button {
+			width:250px;
+			color:white;
+		}
+
+	}
+
+	label {
+		display:block;
+	}
+
+	h2 {
+		margin-bottom: $sectionTitleMarginBottom;
+	}
+
 }
 
-.activeValue {
-	color:black;
-}
 
-//FOOTER
+/***************************************
+****************************************
+FOOTER**********************************
+****************************************
+***************************************/
+
 
 footer {
-	display:flex;
+	display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  	display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  	display: -ms-flexbox;      /* TWEENER - IE 10 */
+  	display: -webkit-flex;     /* NEW - Chrome */
+  	display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
 	flex-direction:row;
 	flex-wrap:wrap;
 	width:100%;
 	background:rgba(255,255,255,1);
-	margin-top: 50px;
 	padding:10px 0;	
 
 	.icon {
 		width:6%;
+		min-width:60px;
+	}
+
+	.facebook_icon {
+		width:15%;
 		min-width:60px;
 	}
 
@@ -541,227 +881,1296 @@ footer {
 }
 
 
-//MEDIA QUERIES
+/***************************************
+****************************************
+PAGE: TUITION***************************
+****************************************
+***************************************/
 
-//Medium Screens
-@media all and (max-width:940px) {
 
-	#hamburger {
-		display:display;
-	}
+.tuitionWrapper {
+	width:100%;
+	padding-top:80px;
+	background:white;
+	background:url('http://static.tumblr.com/03fbbc566b081016810402488936fbae/pqpk3dn/MRSmlzpj3/tumblr_static_bg3.png') repeat 0 0; //Hero background by https://codepen.io/asfarmed/pen/cfslr
 
-	nav {
-		display:none;
-	}
-
-	h1 {
+	.tuitionIntro {
+		width:76vw;
+		color:white;
+		margin-left:140px;
+		margin-bottom:5vh;
+		margin-right:50px;
 		text-align:center;
+
+		h2 {
+			font-weight:bold;
+			font-size:150%;
+		}
+
 	}
 
-	.hero {
-		margin:0 auto;
+	.tuitionModules {
+		display:flex;
+		flex-direction:row;
+		flex-wrap:wrap;
+		justify-content: space-around;
+		padding-bottom:4vh;
+
+		.tuitionModule {
+			display:inline-block;
+			width:50vw;
+			min-height:10vw;
+			border:1px solid white;
+			background-color:white;
+			margin-bottom:3vh;
+			padding:3vw;
+
+			h2 {
+				font-weight:bold;
+				margin-bottom:2vh;
+				font-size:150%;
+			}
+		}
 	}
 
-	.headline {	
-		width:100%;	
-	}
-		.hero .headline h3 {
-		margin:0 10%;
-		width:80%;	
+	.tuitionTitle {
+		text-align:center;
+		margin-bottom:1%;
 	}
 
-		.why {
+	.tuitionHero {
+		display:flex;
+		flex-direction:row;
+		justify-content: space-around;
+		min-height:76vh;
 
-	 	.why-box {
-	 		float:none;
-			width:74%;
-			min-height:180px;
-			margin:0 auto;
-			padding:3%;
-			background:rgba(255,255,255,1);
-			border:1px solid black;
+		.tuitionOptions {
+			margin-top:10vh;
+			margin-left:50px;
 
-			.KPI {
-				h3 {
-					font-size:2em;
-				}
+			.tuitionOption {
+				border-top:1px solid lightgrey;
+				border-left:1px solid lightgrey;
+				background:white;
+				padding:1vw;
+				border-right:1px solid lightgrey;
 			}
 
-				 p {
-				
-					font-size:100%;
-				
+			.num6 {
+				border-top:1px solid lightgrey;
+				border-bottom:1px solid lightgrey;
+			}
+
+			.selected {
+				background:orange;
+			}
+		}
+
+		.tuitionView {
+			background:white;
+			width:100%;
+			margin-bottom:10vh;
+			margin-right:10vh;
+			padding-bottom:4vh;
+
+			h5 {
+				text-align:center;
+				margin-top:10%;
+			}
+
+			h2 {
+				font-size:160%;
+				background-color:orange;
+				color:white;
+				padding:1vw;
+			}
+
+			h3 {
+				font-size:120%;
+				background-color:white;
+				padding-top:1vw;
+				padding-left:1vw;
+				font-weight:bold;
+			}
+
+			.time, .teacher {
+				color:grey;
+				font-weight:italics;
+			}
+
+			p {
+				padding:0 3vw;
 			}
 		}
 	}
 }
 
-//Small Screens
-@media all and (max-width:700px) and (min-width:1px)  {
 
-	.hero .sub-hero-1, .hero .sub-hero-2 {
-		margin:30px 9%;
+	
+
+/***************************************
+****************************************
+PAGE: LEARN MORE************************
+****************************************
+***************************************/
+
+.learnMoreWrapper1 {
+	background:white;
+	background:url('http://static.tumblr.com/03fbbc566b081016810402488936fbae/pqpk3dn/MRSmlzpj3/tumblr_static_bg3.png') repeat 0 0; //Hero background by https://codepen.io/asfarmed/pen/cfslr
+	padding-top:80px;
+	width:100%;
+
+	.learnMoreTitle {
+		width:100vw;
+		color:white;
+		text-align:center;
+	}
+
+	.learnMoreHero {
+		display:flex;
+		flex-wrap:wrap;
+		justify-content: space-around;
+		min-height:73vh;
+		width:100vw;
+
+		iframe {
+			margin-top:5vh;
+			margin-bottom:5vh;
+			width:60vw;
+			height:30vw;
+			display:block;	
+		}
+		
+		.learnMoreWrapper {
+			display:flex;
+			flex-direction:column;
+			margin-top:5vh;
+
+			.learnMoreOptions {
+			display:flex;
+			flex-direction:row;
+			justify-content: space-around;
+
+				.learnMoreOption {
+					border-top:1px solid lightgrey;
+					border-left:1px solid lightgrey;
+					background:white;
+					text-align:center;
+					width:10vw;
+					padding:2vw;
+				}
+
+				.num6 {
+					border-top:1px solid grey;
+					border-bottom:1px solid grey;
+
+				}
+
+				.selected {
+					background:orange;
+				}
+			}
+
+			.learnMoreView {
+				width:84vw;
+				background:white;
+				min-height:38.25vh;
+				margin-bottom:10vh;
+				padding-bottom:4vh;
+				padding-left:2px;
+				padding-right:2px;
+				border:1px solid lightgrey;
+
+				img {
+					width:20%;
+					padding-left:3vw;
+				}
+
+				h2 {
+					font-size:160%;
+					background-color:orange;
+					color:white;
+					padding:1vw;
+
+				}
+
+				h3 {
+					font-size:120%;
+					background-color:white;
+					padding-top:1vw;
+					padding-left:1vw;
+					font-weight:bold;
+
+				}
+
+				.time, .teacher {
+					color:grey;
+					font-weight:italics;
+				}
+
+				p {
+					padding:0 3vw;
+				}
+			}
+		}
+	}
+}
+
+
+
+
+/***************************************
+****************************************
+PAGE: CURRICULUM************************
+****************************************
+***************************************/
+
+.curriculumWrapper {
+	width:100%;
+	padding-top:80px;
+	background:white;
+	background:url('http://static.tumblr.com/03fbbc566b081016810402488936fbae/pqpk3dn/MRSmlzpj3/tumblr_static_bg3.png') repeat 0 0; //Hero background by https://codepen.io/asfarmed/pen/cfslr
+
+	.curriculumIntro {
+		width:76vw;
+		color:white;
+		margin-left:140px;
+		margin-bottom:5vh;
+		margin-right:50px;
+		text-align:center;
+
+		h2 {
+				font-weight:bold;
+				font-size:150%;
+		}
+
+	}
+	.curriculumModules {
+		display:flex;
+		flex-direction:row;
+		flex-wrap:wrap;
+		justify-content: space-around;
+		margin-bottom:3vh;
+
+		.curriculumModule {
+			display:inline-block;
+			width:50vw;
+			min-height:10vw;
+			border:1px solid white;
+			background-color:white;
+			margin-bottom:3vh;
+			padding:3vw;
+
+			h2 {
+				font-weight:bold;
+				margin-bottom:2vh;
+				font-size:150%;
+			}
+		}
+	}
+
+	.curriculumTitle {
+		text-align:center;
+		margin-bottom:1%;
+	}
+
+	.curriculumHero {
+		display:flex;
+		flex-direction:row;
+		justify-content: space-around;
+		min-height:76vh;
+
+		.curriculumOptions {
+			margin-top:10vh;
+			margin-left:50px;
+
+
+			.curriculumOption {
+				border-top:1px solid lightgrey;
+				border-left:1px solid lightgrey;
+				background:white;
+				padding:1vw;
+				border-right:1px solid lightgrey;
+			}
+
+			.num6 {
+				border-top:1px solid lightgrey;
+				border-bottom:1px solid lightgrey;
+			}
+
+			.selected {
+				background:orange;
+			}
+		}
+
+		.curriculumView {
+			background:white;
+			width:100%;
+			margin-bottom:10vh;
+			margin-right:10vh;
+			padding-bottom:4vh;
+
+
+			h5 {
+				text-align:center;
+				margin-top:10%;
+			}
+
+			h2 {
+				font-size:160%;
+				background-color:orange;
+				color:white;
+				padding:1vw;
+
+			}
+
+			h3 {
+				font-size:120%;
+				background-color:white;
+				padding-top:1vw;
+				padding-left:1vw;
+				font-weight:bold;
+
+			}
+
+			.time, .teacher {
+				color:grey;
+				font-weight:italics;
+			}
+
+			p {
+				padding:0 3vw;
+			}
+		}
+	}
+}
+
+/***************************************
+****************************************
+PAGE: MAKERSPACE************************
+****************************************
+***************************************/
+
+.makerspaceWrapper1 {
+	background:url('http://static.tumblr.com/03fbbc566b081016810402488936fbae/pqpk3dn/MRSmlzpj3/tumblr_static_bg3.png') repeat 0 0; //Hero background by https://codepen.io/asfarmed/pen/cfslr
+	padding-top:80px;
+	width:100%;
+
+	.makerspaceTitle {
+		width:100vw;
+		color:white;
+		text-align:center;
+	}
+
+	.makerspaceHero {
+		display:flex;
+		flex-wrap:wrap;
+		justify-content: space-around;
+		min-height:73vh;
+		width:100vw;
+		padding-top:5vh;
+
+			.slideshowContainer {
+				order:-1;
+
+				.slideshow {
+					width:50vw;
+					min-width:300px;
+
+					img {
+						width:100%;
+						height:300px;
+					}
+				}
+
+				.otherPics {
+					display:flex;
+					flex-direction:row;
+					justify-content: space-around;
+					width:40vw;
+					margin:0 auto;
+
+					.img1, .img2, .img3, .img4 {
+						width:24%;
+						height:50px;
+
+						 img {
+							width:100%;
+							height:100%;
+						}
+					}
+				}
+
+				.arrow {
+					width:10%;
+					margin-left:40%;
+					margin-top:2vh;
+				}
+
+			}
+
+		.makerspaceWrapper {
+			display:flex;
+			flex-direction:row;
+			width:40vw;
+
+			.makerspaceOptions {
+			display:flex;
+			flex-direction:column;
+
+				.makerspaceOption {
+					border-top:1px solid lightgrey;
+					border-left:1px solid lightgrey;
+					background:white;
+					text-align:center;
+					width:10vw;
+					padding:2vw;
+				}
+
+				.num6 {
+					border-top:1px solid grey;
+					border-bottom:1px solid grey;
+
+				}
+
+				.selected {
+					background:orange;
+				}
+			}
+
+			.makerspaceView {
+				width:50vw;
+				background:white;
+				min-height:38.25vh;
+				margin-bottom:10vh;
+				padding-bottom:4vh;
+				padding-left:2px;
+				padding-right:2px;
+				border:1px solid lightgrey;
+
+				img {
+					width:20%;
+					padding-left:3vw;
+				}
+
+				h2 {
+					font-size:160%;
+					background-color:orange;
+					color:white;
+					padding:1vw;
+
+				}
+
+				h3 {
+					font-size:120%;
+					background-color:white;
+					padding-top:1vw;
+					padding-left:1vw;
+					font-weight:bold;
+
+				}
+
+				.time, .teacher {
+					color:grey;
+					font-weight:italics;
+				}
+
+				p {
+					padding:0 3vw;
+				}
+			}
+		}
+	}
+}
+
+
+/***************************************
+****************************************
+PAGE: CONTACT US************************
+****************************************
+***************************************/
+
+.contactUsWrapper1 {
+	background:white;
+	background:url('http://static.tumblr.com/03fbbc566b081016810402488936fbae/pqpk3dn/MRSmlzpj3/tumblr_static_bg3.png') repeat 0 0; //Hero background by https://codepen.io/asfarmed/pen/cfslr
+	padding-top:80px;
+	width:100%;
+
+	.contactUsTitle {
+		width:100vw;
+		color:white;
+		text-align:center;
+	}
+
+	.contactUsHero {
+		display:flex;
+		flex-wrap:wrap;
+		justify-content: space-around;
+		min-height:73vh;
+		width:100vw;
+
+		iframe {
+			margin-top:5vh;
+			margin-bottom:5vh;
+			width:60vw;
+			height:30vw;
+			display:block;	
+		}
+		
+		.contactUsWrapper {
+			display:flex;
+			flex-direction:column;
+			margin-top:5vh;
+
+			.contactUsOptions {
+			display:flex;
+			flex-direction:row;
+			justify-content: space-around;
+
+				.contactUsOption {
+					border-top:1px solid lightgrey;
+					border-left:1px solid lightgrey;
+					background:white;
+					text-align:center;
+					width:16vw;
+					padding:2vw;
+				}
+
+				.num6 {
+					border-top:1px solid grey;
+					border-bottom:1px solid grey;
+
+				}
+
+				.selected {
+					background:orange;
+				}
+			}
+
+			.contactUsView {
+				width:84vw;
+				background:white;
+				min-height:38.25vh;
+				margin-bottom:10vh;
+				padding-bottom:4vh;
+				padding-left:2px;
+				padding-right:2px;
+				border:1px solid lightgrey;
+
+				img {
+					width:20%;
+					padding-left:3vw;
+				}
+
+				h2 {
+					font-size:160%;
+					background-color:orange;
+					color:white;
+					padding:1vw;
+
+				}
+
+				h3 {
+					font-size:120%;
+					background-color:white;
+					padding-top:1vw;
+					padding-left:1vw;
+					font-weight:bold;
+
+				}
+
+				.time, .teacher {
+					color:grey;
+					font-weight:italics;
+				}
+
+				p {
+					padding:0 3vw;
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+// -webkit-animation: 0s linear 0s normal none infinite animate;
+// 	-moz-animation: 0s linear 0s normal none infinite animate;
+// 	-ms-animation: 0s linear 0s normal none infinite animate;
+// 	-o-animation: 0s linear 0s normal none infinite animate;
+// 	animation: 0s linear 0s normal none infinite animate;
+ 
+ 
+// 	@-webkit-keyframes animate {
+// 		from {background-position:0 0;}
+// 		to {background-position: 0 0;}
+// 	}
+	 
+// 	@-moz-keyframes animate {
+// 		from {background-position:0 0;}
+// 		to {background-position: 0 0;}
+// 	}
+	 
+// 	@-ms-keyframes animate {
+// 		from {background-position:0 0;}
+// 		to {background-position: 0 0;}
+// 	}
+	 
+// 	@-o-keyframes animate {
+// 		from {background-position:0 0;}
+// 		to {background-position: 0 0;}
+// 	}
+	 
+// 	@keyframes animate {
+// 		from {background-position:0 0;}
+// 		to {background-position: 0 0;}
+// 	}	
+
+
+/****************************************************************
+****************************************
+MEDIA QUERIES***************************
+****************************************
+****************************************************************/
+
+//MEDIUM
+@media all and (min-width:701px) and (max-width:860px) {
+
+	body {
+
+		button {
+			h5 {
+				font-size: 80%;
+			}
+		}
+	}
+
+	header {
+		height:80px;
+
+		#logo {
+			padding:0px; //Fix this later
+			width:19vw;
+			margin-left:39vw;
+		}
+
+		nav {
+			float:none;
+			margin:0 auto;
+			margin-top:-20px;
+			width:80vw;
+			text-align:center;
+
+			
+			li {
+				display:inline-block;
+				padding: 0 5px;
+			}	
+
+			h3 {
+				
+			}
+
+			a {
+				text-decoration:none;
+				color:$textColor;
+			}	
+
+			a:hover {
+				color:orange;
+			}
+		}
+	}
+
+	.hero {
+
+		.bannerAnnouncement {
+			display:block;
+			flex-direction:column;
+			flex-wrap:wrap;
+			width:100vw;
+			height:150px;
+
+				h2 {
+					margin:40px 0 10px 0;
+					text-align:center;
+				}
+
+				button {
+					margin:10px auto;
+				}
+
+				h3 {
+					margin:0 auto;
+					font-size:70%;
+					font-weight:600;	
+				}
+		}
+
+		.noBannerAnnouncement {
+
+			h1 {
+				margin-top:5px;
+			}
+			.edgeSubHero {
+				margin-top:-50px;
+			}
+		}
+
+		.headline h1 {
+			font-size:2.5em;
+		}
 	}
 
 	.why {
-
-	 	.why-box {
-	 		float:none;
-			width:74%;
-			min-height:180px;
-			margin:0 auto;
-			padding:3%;
-			background:rgba(255,255,255,1);
-			border:1px solid black;
-
+		.why-box {
+		
 			.KPI {
 				h3 {
-					font-size:2em;
+					font-size:1em;
 				}
 			}
-
-				 p {
-					font-size:100%;
-				
+		
+			 .kpiDescription p {
+				font-size:.8em;
 			}
 		}
 	}
 
-	#hamburger {
-		display:display;
+	.students {
+		.allButArrow {
+			display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  			display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  			display: -ms-flexbox;      /* TWEENER - IE 10 */
+  			display: -webkit-flex;     /* NEW - Chrome */
+  			display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+			flex-direction:column;
+		}
+
+		.featuredStudentContainer {
+			width:60%;
+			margin:0 auto;
+			margin-bottom:10px;
+		}
 	}
 
-	nav {
+	.requestInfo form {
+		max-width:50%;	
+	}
+
+	.volunteerInfo form {
+		max-width:50%;
+	}
+
+	footer .facebook_icon {
+		width:30%;
+	}
+}
+
+//SMALL
+@media all and (max-width:700px) and (min-width:1px)  {
+
+	body {
+		button {
+			h5 {
+				font-size: 80%;
+			}
+		}
+	}
+
+	header {
+		height:100px;
+
+		#logo {
+			width:100px;
+			display:block;
+			margin:0 auto;
+			
+		}
+
+		nav {
+			float:none;
+			margin:0 auto;
+			margin-top:-20px;
+			width:80vw;
+			text-align:center;
+
+			li {
+				display:inline-block;
+				padding: 0 5px;
+			}	
+
+			h3 {
+				
+			}
+
+			a {
+				text-decoration:none;
+				color:$textColor;
+			}	
+
+			a:hover {
+				color:orange;
+			}
+		}
+	}
+
+	.empty {
 		display:none;
 	}
 
-	h1 {
-		text-align:center;
-	}
-
-	.headline {
-		width:100%;
-	}
-
 	.hero {
-		width:100%;
-		height:100%;
-		
-		.headline h3 {
-			margin:10px 0 0 0;
-			width:95%;
+		display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  		display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  		display: -ms-flexbox;      /* TWEENER - IE 10 */
+  		display: -webkit-flex;     /* NEW - Chrome */
+  		display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+		flex-direction:column;
+		flex-wrap:wrap;
+		justify-content:flex-start;
+		min-height:95vh;
+
+	.bannerAnnouncement {
+			display:block;
+			flex-direction:column;
+			flex-wrap:wrap;
+			width:100vw;
+			height:200px;
+			order:-5;
+
+				h2 {
+					margin:70px 0 5px 0;
+					text-align:center;
+				}
+
+				button {
+					margin:10px auto;
+				}
+
+				h3 {
+					margin:0 auto 10px auto;
+					font-size:70%;
+					font-weight:600;	
+				}
 		}
 
-		.sub-hero-2, .sub-hero-1 {
-			height:50%;
-			width:80%;	
-			border: 1px solid grey;
-			float:none;
+		.noBannerAnnouncement {
+
+			.edgeSubHero {
+				margin-top:-50px;
+			}
+		}
+
+		.headline {
+			order:-2;
+			width:100%;
+			height:100px;
+			margin-bottom:10px;
+			margin-top:40px;
+
+			h1 {
+				font-size:7vw;
+				width:95%;	
+
+			
+			}
+
+			h3 {
+				width:95%;
+				font-size:3vw;
+			}
+		}
+
+		.middleSubHero, .edgeSubHero {
+			width:80%;
+			margin:0 auto;
+			margin-bottom:20px;
+
+			.arrow {
+				display:none;
+			}
+		}
+
+		.noBannerAnnouncement {
+				margin-top:130px;
+			}
+
+		.middleSubHero {
+			order:-1;
+			transition: none;
+		}
+
+		.middleSubHero:hover { 
+		transform: none; 
+		}
+
+		.edgeSubHero {
+			order:0;
+
+			.edgeSubHeroContent {
+				transition: none;
+			}
+
+			.edgeSubHeroContent:hover { 
+				transform: none;
+			}
+		}
+
+		.heroArrow {
+			display:none;
+		}
+
+		.arrowMobile img {
+			display:block;
+			order: 5;
+			margin:30px auto 60px auto;
+		}	
+
+		.arrowMobile a {
+			order: 5;
 		}
 	}
 
-	
-}
-
-
-
-////CURRICULUM PAGE
-
-.curriculumTitle {
-	text-align:center;
-	margin-bottom:1%;
-}
-
-
-.curriculum-15 {
-	border:1px solid grey;
-	background:white;
-	width:100%;
-	margin-bottom:2%;
-}
-
-.curriculum-15 h3 {
-	background:grey;
-}
-
-.curriculumWrapper {
-	background:white;
-	margin:$headerHeight+30px 10% 0 2%;
-}
-
-.whiteBG {
-	background:white;
-}
-
-.learnMore-25 {
-	float:left;
-	border:1px solid grey;
-	background:white;
-	width:40%;
-	margin-bottom:2%;
-	margin-left:4%;
-	margin-right:4%;
-	margin-top:3%;
-}
-
-.learnMore-25 h3 {
-	background:grey;
-}
-
-.learnMore-25 p {
-	padding: 4%;
-}
-
-.video {
-	float: left;
-	width:100%;	
-}
-
-
-
-
-/////TUITION PAGE
-
-.tuitionMainWrapper {
-	background:white;
-}
-
-.tuitionWrapper {
-	padding-top:5%;
-
-	table, tr, td {
-		border:1px solid black;
-		margin:2% auto;
-		padding:2%;
-		
+	.learnMoreWrapper1 {
+		padding-top:110px;
 	}
 
-	h3 {
-		text-align:center;
-		background:grey;
+	.why {
+		display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  		display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  		display: -ms-flexbox;      /* TWEENER - IE 10 */
+  		display: -webkit-flex;     /* NEW - Chrome */
+  		display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+
+		.arrow4 {
+			order:2;
+		}
+
+		.whyBoxFeatured {
+			order:0;
+			transform:none;
+			z-index:0;
+			min-height:0px;
+			width:50%;
+			padding:2vw;
+			margin:0 auto;
+
+			.KPI {
+				font-size:3vw;
+			}
+		}
+
+		.sub-whys {
+			width:90%;
+			z-index: 0;
+			order: 1;
+			margin:2vh auto;
+			
+			.why-box  {
+				z-index: 0;
+				transform:none;
+				width:96%;
+				margin:2vh auto;
+			
+				.KPI {
+					h3 	{
+						font-size:3vw;
+					}
+				}
+			
+				 .kpiDescription p {
+					font-size:.8em;
+				}
+			}
+		}
 	}
 
+	.students {
+		.allButArrow {
+			display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+  			display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+  			display: -ms-flexbox;      /* TWEENER - IE 10 */
+  			display: -webkit-flex;     /* NEW - Chrome */
+  			display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+			flex-direction:column;
+		}
+
+		.featuredStudentContainer {
+			width:80%;
+			margin-bottom:10px;
+		}
+	}
+
+
+
+	.volunteerInfo form {
+		max-width:80%;
+	}
+
+	.requestInfo form {
+		max-width:80%;	
+		input {
+			max-width:90%;
+		}
+
+		button {
+			max-width:90%;
+		}
+	}
+
+	footer .facebook_icon {
+		width:30%;
+	}
+
+	.praise {
+		.stories {
+			.story .featured {
+				width:80vw;
+				padding:0;
+							
+				#video {
+					width:100%;
+					padding:0;
+				}
+			}
+		}	
+	}
+
+	.learnMoreOption {
+				font-size:50%;
+	}
+
+	.tuitionWrapper {
+		padding-top:100px;
+
+		.tuitionIntro {
+			margin:20px auto 20px auto;
+		}
+
+		.tuitionModules {
+			.tuitionModule {
+				width:90vw;
+			}
+		}
+
+		.tuitionHero {
+			display:flex;
+			flex-direction:column;
+			flex-wrap:wrap;
+			min-height:5px;
+			width:97vw;
+			margin:0 auto;
+
+			.tuitionOptions {
+				margin:0;
+
+				.tuitionOption {
+					padding:2vw;
+				}
+			}
+
+			.tuitionView {
+
+				h2 {
+					margin-bottom:20px;
+				}
+
+				h3, p {
+					padding:0 5vw;
+				}
+
+				h3 {
+					padding-top:10px;
+				}
+			}
+		}
+	}
+
+
+
+	.curriculumWrapper {
+			padding-top:100px;
+
+		.curriculumIntro {
+			margin:20px auto 20px auto;
+		}
+
+		.curriculumModules {
+			.curriculumModule {
+				width:90vw;
+			}
+		}
+
+		.curriculumHero {
+			display:flex;
+			flex-direction:column;
+			flex-wrap:wrap;
+			min-height:5px;
+			width:97vw;
+			margin:0 auto;
+
+			.curriculumOptions {
+				margin:0;
+
+				.curriculumOption {
+					padding:2vw;
+				}
+			}
+
+			.curriculumView {
+
+				h2 {
+					margin-bottom:20px;
+				}
+
+				h3, p {
+					padding:0 5vw;
+				}
+
+				h3 {
+					padding-top:10px;
+				}
+			}
+		}
+	}
+
+.contactUsWrapper1{
+
+	padding-top:100px;
+
+	.contactUsTitle {
+
+	}
+
+	.contactUsHero {
+		min-height:10px;
+
+		.contactUsWrapper {
+			flex-direction:row;
+			margin-bottom:20px;
+
+			.contactUsOptions {
+				flex-direction:column;
+				margin:0;
+				height:45vw;
+				
+
+				.contactUsOption {
+					height:10vw;
+						font-size:2.5vw;
+
+				}
+			}
+
+			.contactUsView {
+				width:50vw;
+				height:50vw;
+			}
+
+		}
+
+
+	}
 }
 
-.topTuition {
-	margin:0 10% 0 10%;
-}
+.makerspaceWrapper1 {
 
-.tuition-20 {
-	float:left;
-	border:1px solid grey;
-	background:white;
-	width:20%;
-	margin-bottom:2%;
-}
+	padding-top:110px;
+	.makerspaceTitle {
+
+	}
+
+	.makerspaceHero {
 
 
-.tuition-100 {
-	border:1px solid grey;
-	background:white;
-	width:100%;
-	margin-bottom:2%;
+			.slideshowContainer {
+				width: 80vw;
+
+				.slideshow {
+					width: 80vw;
+
+					img {
+						
+					}
+				}
+
+				.otherPics {
+				
+
+					.img1, .img2, .img3, .img4 {
+				
+
+						 img {
+							width:100%;
+						}
+					}
+				}
+
+				.arrow {
+					
+				}
+
+			}
+
+		.makerspaceWrapper {
+			flex-direction:column;
+			width:80vw;
+
+			.makerspaceOptions {
+				flex-direction:row;
+				justify-content:space-around;
+				margin:20px auto 0 auto;
+
+				.makerspaceOption {
+					width:20vw;
+				}
+
+				.num6 {
+				
+
+				}
+
+				.selected {
+					
+				}
+			}
+
+			.makerspaceView {
+				width:80vw;
+
+				img {
+					
+				}
+
+				h2 {
+					
+
+				}
+
+				h3 {
+					
+
+				}
+
+				.time, .teacher {
+				
+				}
+
+				p {
+					
+				}
+			}
+		}
+	}
 }
+
+}
+
+	.hide {
+			display:none;
+		}
 
 
 
